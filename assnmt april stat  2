@@ -1,0 +1,339 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "4a469c24-8cd8-4e57-b719-66296e91aed6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "2d22aa76-0e2e-4420-8fe1-42bf350d2208",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "dataset=pd.read_csv('Sales_add.csv')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "39ed0720-6599-4fde-8865-cb027301745a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Month</th>\n",
+       "      <th>Region</th>\n",
+       "      <th>Manager</th>\n",
+       "      <th>Sales_before_digital_add(in $)</th>\n",
+       "      <th>Sales_After_digital_add(in $)</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Month-1</td>\n",
+       "      <td>Region - A</td>\n",
+       "      <td>Manager - A</td>\n",
+       "      <td>132921</td>\n",
+       "      <td>270390</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Month-2</td>\n",
+       "      <td>Region - A</td>\n",
+       "      <td>Manager - C</td>\n",
+       "      <td>149559</td>\n",
+       "      <td>223334</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Month-3</td>\n",
+       "      <td>Region - B</td>\n",
+       "      <td>Manager - A</td>\n",
+       "      <td>146278</td>\n",
+       "      <td>244243</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Month-4</td>\n",
+       "      <td>Region - B</td>\n",
+       "      <td>Manager - B</td>\n",
+       "      <td>152167</td>\n",
+       "      <td>231808</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Month-5</td>\n",
+       "      <td>Region - C</td>\n",
+       "      <td>Manager - B</td>\n",
+       "      <td>159525</td>\n",
+       "      <td>258402</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     Month      Region      Manager  Sales_before_digital_add(in $)  \\\n",
+       "0  Month-1  Region - A  Manager - A                          132921   \n",
+       "1  Month-2  Region - A  Manager - C                          149559   \n",
+       "2  Month-3  Region - B  Manager - A                          146278   \n",
+       "3  Month-4  Region - B  Manager - B                          152167   \n",
+       "4  Month-5  Region - C  Manager - B                          159525   \n",
+       "\n",
+       "   Sales_After_digital_add(in $)  \n",
+       "0                         270390  \n",
+       "1                         223334  \n",
+       "2                         244243  \n",
+       "3                         231808  \n",
+       "4                         258402  "
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dataset.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "5d2f490f-07eb-42e2-bc75-1f9ebca60e51",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index(['Month', 'Region', 'Manager', 'Sales_before_digital_add(in $)',\n",
+       "       'Sales_After_digital_add(in $)'],\n",
+       "      dtype='object')"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dataset.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "fcf618fe-72f1-409a-8d26-24616a401991",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(22, 5)"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "dataset.s"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fed76e3e-676e-4191-8555-94cf5b159456",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#qn 2(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "c789a12b-7dc6-4f13-9202-f85b839a1c05",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import chi2_contingency"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "a8ee8da9-6241-4253-965e-33b2f69fade4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "chi_stat,p_value,dof,exp=chi2_contingency(dataset['Sales_before_digital_add(in $)'],dataset['Sales_After_digital_add(in $)'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "7a04d13e-676e-4740-affd-734749ca8f73",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1.0"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "p_value"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "499b4fa1-a928-48d8-99b3-71a13877d0cf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "There is increase in sales after stepping into digital marketing\n"
+     ]
+    }
+   ],
+   "source": [
+    "if p_value<0.05:\n",
+    "    print('There is no increase in sales after stepping into digital marketing')\n",
+    "else:\n",
+    "    print('There is increase in sales after stepping into digital marketing')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "id": "00b98fee-21ba-4cf4-8c4e-f0422cdba89d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#qn 2 (ii)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "23a7492b-5eb4-4bda-8c31-45de401a5de9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.stats import chi2_contingency\n",
+    "import pandas as pd\n",
+    "contingency_table = pd.crosstab(dataset['Region'], dataset['Manager'])\n",
+    "chi_stat, p_value, dof, exp = chi2_contingency(contingency_table)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "a84a6004-3e85-41fd-b2ca-938846d657b1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.5493991051158094"
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "p_value"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "442d4be3-2a09-4f5d-bff3-598b33f40c67",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "There is dependency between region and manager\n"
+     ]
+    }
+   ],
+   "source": [
+    "if p_value<0.05:\n",
+    "    print('There is no dependency between region and manager')\n",
+    "else:\n",
+    "    print('There is a dependency between region and manager')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "38ce5e2a-39ec-4937-86cd-3d1ff08c861f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "anaconda-panel-2023.05-py310",
+   "language": "python",
+   "name": "conda-env-anaconda-panel-2023.05-py310-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
